@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ecobike Helsinki — Bike Rental & Service</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     :root {
       --green-50:  #EAF3DE;
@@ -18,15 +25,18 @@
       --green-600: #3B6D11;
       --green-800: #27500A;
       --green-900: #173404;
-      --bg:        #f5f4f0;
-      --card:      #ffffff;
-      --text:      #1a1a18;
-      --text-muted:#5a5a56;
-      --text-faint:#9a9a94;
-      --border:    rgba(0,0,0,0.09);
+
+      --bg:         #f5f4f0;
+      --card:       #ffffff;
+      --text:       #1a1a18;
+      --text-muted: #5a5a56;
+      --text-faint: #9a9a94;
+      --border:     rgba(0,0,0,0.09);
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: 'DM Sans', sans-serif;
@@ -36,11 +46,12 @@
       line-height: 1.7;
     }
 
-    /* ── HERO ── */
+    /* ───────────────── HERO ───────────────── */
+
     .hero {
       position: relative;
       overflow: hidden;
-      min-height: 480px;
+      min-height: 380px;
       display: flex;
       align-items: flex-end;
     }
@@ -54,79 +65,111 @@
       object-position: center 60%;
     }
 
-    /* layered overlay: dark green gradient from bottom, subtle tint on top */
     .hero-overlay {
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(to top, rgba(23,52,4,0.97) 0%, rgba(23,52,4,0.75) 45%, rgba(23,52,4,0.35) 75%, rgba(23,52,4,0.15) 100%);
+        linear-gradient(
+          to top,
+          rgba(23,52,4,0.88) 0%,
+          rgba(23,52,4,0.62) 45%,
+          rgba(23,52,4,0.26) 75%,
+          rgba(23,52,4,0.08) 100%
+        );
     }
 
     .hero-inner {
       position: relative;
       width: 100%;
-      max-width: 480px;
+      max-width: 980px;
       margin: 0 auto;
-      padding: 2.5rem 1.5rem 2.25rem;
+      padding: 2rem 1.5rem 2rem;
     }
 
     .hero-eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
+
       font-size: 11px;
       font-weight: 500;
       letter-spacing: 0.13em;
       text-transform: uppercase;
+
       color: var(--green-100);
+
       margin-bottom: 0.75rem;
       opacity: 0.85;
     }
 
-    .hero-eyebrow svg { width: 13px; height: 13px; }
+    .hero-eyebrow svg {
+      width: 13px;
+      height: 13px;
+    }
 
     .hero h1 {
       font-family: 'DM Serif Display', serif;
       font-weight: 400;
+
       font-size: clamp(42px, 11vw, 62px);
+
       color: #fff;
       line-height: 1.05;
-      margin-bottom: 0.65rem;
       letter-spacing: -0.01em;
+
+      margin-bottom: 0.65rem;
     }
 
     .hero-tagline {
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 300;
-      color: rgba(255,255,255,0.62);
-      margin-bottom: 1.5rem;
+      color: rgba(255,255,255,0.72);
+
+      max-width: 420px;
       line-height: 1.6;
-      max-width: 300px;
+
+      margin-bottom: 1.5rem;
     }
 
     .hero-cta {
       display: flex;
-      gap: 9px;
       flex-wrap: wrap;
-      margin-bottom: 2rem;
+      gap: 9px;
+
+      margin-bottom: 1.8rem;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 7px;
+
       padding: 10px 20px;
+
       border-radius: 999px;
+
       font-family: 'DM Sans', sans-serif;
       font-size: 13px;
       font-weight: 500;
+
       text-decoration: none;
       cursor: pointer;
-      transition: opacity 0.15s, transform 0.1s, background 0.15s;
+
+      transition:
+        opacity 0.15s,
+        transform 0.1s,
+        background 0.15s;
     }
 
-    .btn:active { transform: scale(0.97); }
-    .btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .btn svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+    }
 
     .btn-primary {
       background: var(--green-600);
@@ -134,66 +177,111 @@
       border: none;
     }
 
-    .btn-primary:hover { background: var(--green-400); }
+    .btn-primary:hover {
+      background: var(--green-400);
+    }
 
     .btn-ghost {
       background: rgba(255,255,255,0.1);
       color: rgba(255,255,255,0.88);
+
       border: 1px solid rgba(255,255,255,0.22);
+
       backdrop-filter: blur(4px);
     }
 
-    .btn-ghost:hover { background: rgba(255,255,255,0.17); }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.17);
+    }
 
-    /* hours strip */
     .hours-strip {
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+
+      padding-top: 1.15rem;
+
       display: flex;
       align-items: center;
-      gap: 9px;
-      font-size: 12px;
-      color: rgba(255,255,255,0.42);
       flex-wrap: wrap;
+      gap: 9px;
+
+      font-size: 12px;
+      color: rgba(255,255,255,0.48);
     }
 
     .hours-dot {
       width: 6px;
       height: 6px;
       border-radius: 50%;
+
       background: var(--green-200);
+
       flex-shrink: 0;
+
       box-shadow: 0 0 5px rgba(149,196,89,0.6);
     }
 
-    .hours-strip strong { color: rgba(255,255,255,0.72); font-weight: 500; }
-
-    /* ── BODY ── */
-    .body-wrap {
-      max-width: 480px;
-      margin: 0 auto;
-      padding: 1.25rem 1.25rem 0;
+    .hours-strip strong {
+      color: rgba(255,255,255,0.74);
+      font-weight: 500;
     }
 
-    /* ── CARDS ── */
+    /* ───────────────── BODY ───────────────── */
+
+    .body-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 860px) {
+      .content-grid {
+        grid-template-columns: 1.05fr 0.95fr;
+        align-items: start;
+      }
+
+      .left-column,
+      .right-column {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .card,
+      .map-card {
+        margin-bottom: 0;
+      }
+    }
+
+    /* ───────────────── CARDS ───────────────── */
+
     .card {
       background: var(--card);
+
       border: 0.5px solid var(--border);
-      border-radius: 14px;
-      padding: 1.25rem;
+      border-radius: 16px;
+
+      padding: 1.35rem;
+
       margin-bottom: 10px;
     }
 
     .card-title {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 500;
+
       margin-bottom: 5px;
-      color: var(--text);
     }
 
     .card-sub {
       font-size: 13px;
       color: var(--text-muted);
+
       margin-bottom: 12px;
       line-height: 1.55;
     }
@@ -204,12 +292,14 @@
     }
 
     .booking-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+
+      padding: 3px 0;
+
       font-size: 13px;
       color: var(--text-muted);
-      padding: 3px 0;
-      display: flex;
-      gap: 8px;
-      align-items: flex-start;
       line-height: 1.45;
     }
 
@@ -219,7 +309,11 @@
       flex-shrink: 0;
     }
 
-    .btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
 
     .btn-dark {
       background: var(--green-600);
@@ -227,43 +321,63 @@
       border: none;
     }
 
-    .btn-dark:hover { background: var(--green-800); }
+    .btn-dark:hover {
+      background: var(--green-800);
+    }
 
     .btn-outline {
       background: transparent;
       color: var(--green-600);
+
       border: 1px solid var(--green-600);
     }
 
-    .btn-outline:hover { background: var(--green-50); }
+    .btn-outline:hover {
+      background: var(--green-50);
+    }
+
+    /* ───────────────── CONTACT ───────────────── */
 
     .contact-row {
       display: flex;
+      align-items: baseline;
       gap: 8px;
+
+      padding: 4px 0;
+
       font-size: 13px;
       color: var(--text-muted);
-      padding: 4px 0;
-      align-items: baseline;
     }
 
     .contact-row strong {
       color: var(--text);
       font-weight: 500;
+
       min-width: 58px;
       flex-shrink: 0;
     }
 
-    .contact-row a { color: inherit; text-decoration: none; }
-    .contact-row a:hover { color: var(--green-600); }
+    .contact-row a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contact-row a:hover {
+      color: var(--green-600);
+    }
 
     .section-label {
       font-size: 10.5px;
       font-weight: 500;
       letter-spacing: 0.07em;
       text-transform: uppercase;
+
       color: var(--text-faint);
+
       margin: 14px 0 8px;
     }
+
+    /* ───────────────── SERVICES ───────────────── */
 
     .services-grid {
       display: grid;
@@ -272,177 +386,330 @@
     }
 
     .service-tag {
-      background: var(--bg);
-      border: 0.5px solid var(--border);
-      border-radius: 8px;
-      padding: 7px 10px;
-      font-size: 12px;
-      color: var(--text-muted);
       display: flex;
       align-items: center;
       gap: 6px;
+
+      background: var(--bg);
+
+      border: 0.5px solid var(--border);
+      border-radius: 9px;
+
+      padding: 8px 10px;
+
+      font-size: 12px;
+      color: var(--text-muted);
+
       line-height: 1.3;
+
       transition: border-color 0.15s;
     }
 
-    .service-tag:hover { border-color: var(--green-100); }
-    .service-tag svg { width: 14px; height: 14px; flex-shrink: 0; color: var(--green-400); }
+    .service-tag:hover {
+      border-color: var(--green-100);
+    }
+
+    .service-tag svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+
+      color: var(--green-400);
+    }
 
     .price-badge {
+      margin-left: auto;
+
       background: var(--green-50);
       color: var(--green-600);
+
       font-size: 10px;
+
       padding: 2px 6px;
       border-radius: 999px;
-      margin-left: auto;
+
       white-space: nowrap;
     }
 
+    /* ───────────────── MAP ───────────────── */
+
     .map-card {
-      background: var(--card);
-      border: 0.5px solid var(--border);
-      border-radius: 14px;
       overflow: hidden;
+
+      background: var(--card);
+
+      border: 0.5px solid var(--border);
+      border-radius: 16px;
+
       margin-bottom: 10px;
     }
 
     .map-card iframe {
       display: block;
       width: 100%;
-      height: 215px;
+      height: 320px;
       border: none;
     }
 
+    /* ───────────────── FOOTER ───────────────── */
+
     footer {
       text-align: center;
+
       font-size: 11.5px;
       color: var(--text-faint);
+
       padding: 1rem 1rem 2.5rem;
     }
 
-    /* fade-in */
+    /* ───────────────── ANIMATION ───────────────── */
+
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .hero-inner > * { animation: fadeUp 0.55s ease both; }
-    .hero-eyebrow  { animation-delay: 0.05s; }
-    .hero h1       { animation-delay: 0.15s; }
-    .hero-tagline  { animation-delay: 0.22s; }
-    .hero-cta      { animation-delay: 0.30s; }
-    .hours-strip   { animation-delay: 0.38s; }
+    .hero-inner > * {
+      animation: fadeUp 0.55s ease both;
+    }
+
+    .hero-eyebrow { animation-delay: 0.05s; }
+    .hero h1      { animation-delay: 0.15s; }
+    .hero-tagline { animation-delay: 0.22s; }
+    .hero-cta     { animation-delay: 0.30s; }
+    .hours-strip  { animation-delay: 0.38s; }
+
   </style>
 </head>
+
 <body>
 
   <!-- HERO -->
+
   <section class="hero">
-    <!-- Unsplash: bikes in Helsinki / city cycling -->
+
     <img
       class="hero-img"
       src="ecobike.jpeg"
-      alt="Bikes parked on a city street"
+      alt="Bike rental shop interior"
     >
+
     <div class="hero-overlay"></div>
 
     <div class="hero-inner">
+
       <div class="hero-eyebrow">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6h-4l-3 7h10l-2-7zM5.5 17.5L8 10"/><circle cx="15" cy="6" r="1"/></svg>
+
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="5.5" cy="17.5" r="3.5"/>
+          <circle cx="18.5" cy="17.5" r="3.5"/>
+          <path d="M15 6h-4l-3 7h10l-2-7zM5.5 17.5L8 10"/>
+          <circle cx="15" cy="6" r="1"/>
+        </svg>
+
         Ecobike Helsinki
+
       </div>
 
       <h1>Ecobike</h1>
 
-      <p class="hero-tagline">Bike rental, repairs, and used bikes in Helsinki.</p>
+      <p class="hero-tagline">
+        Bike rental, repairs, and used bikes in Helsinki.
+      </p>
 
       <div class="hero-cta">
-        <a class="btn btn-primary" href="mailto:ecobike.helsinki@gmail.com?subject=Rental%20booking%20request">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+
+        <a
+          class="btn btn-primary"
+          href="mailto:ecobike.helsinki@gmail.com?subject=Rental%20booking%20request"
+        >
+
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="m2 7 10 7 10-7"/>
+          </svg>
+
           Email booking request
+
         </a>
-        <a class="btn btn-ghost" href="tel:+358400844358">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+
+        <a
+          class="btn btn-ghost"
+          href="tel:+358400844358"
+        >
+
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+
           Call us
+
         </a>
+
       </div>
 
       <div class="hours-strip">
+
         <span class="hours-dot"></span>
-        Open <strong>Mon &amp; Tue 14:15–18:00</strong>
+
+        Open <strong>Mon & Tue 14:15–18:00</strong>
+
         <span style="opacity:0.3">·</span>
+
         Savilankatu 1b
+
       </div>
+
     </div>
+
   </section>
+
+  <!-- BODY -->
 
   <div class="body-wrap">
 
-    <!-- BOOKING -->
-    <div class="card">
-      <div class="card-title">Book a rental</div>
-      <div class="card-sub">Email is the fastest way to book. Please include:</div>
-      <ul class="booking-list">
-        <li>Dates and pickup window</li>
-        <li>Number of bikes and rider heights</li>
-        <li>Type of use (city / trekking)</li>
-        <li>Brake preference (hand / pedal)</li>
-      </ul>
-      <div class="btn-row">
-        <a class="btn btn-dark" href="mailto:ecobike.helsinki@gmail.com?subject=Rental%20booking%20request">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
-          Email us
-        </a>
-        <a class="btn btn-outline" href="tel:+358400844358">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Call
-        </a>
+    <div class="content-grid">
+
+      <!-- LEFT -->
+
+      <div class="left-column">
+
+        <!-- BOOKING -->
+
+        <div class="card">
+
+          <div class="card-title">Book a rental</div>
+
+          <div class="card-sub">
+            Email is the fastest way to book. Please include:
+          </div>
+
+          <ul class="booking-list">
+            <li>Dates and pickup window</li>
+            <li>Number of bikes and rider heights</li>
+            <li>Type of use (city / trekking)</li>
+            <li>Brake preference (hand / pedal)</li>
+          </ul>
+
+          <div class="btn-row">
+
+            <a
+              class="btn btn-dark"
+              href="mailto:ecobike.helsinki@gmail.com?subject=Rental%20booking%20request"
+            >
+
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m2 7 10 7 10-7"/>
+              </svg>
+
+              Email us
+
+            </a>
+
+            <a
+              class="btn btn-outline"
+              href="tel:+358400844358"
+            >
+
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+
+              Call
+
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- MAP -->
+
+        <div class="map-card">
+
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1984.4!2d24.9235!3d60.1869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46920bc5bca5ea55%3A0x5f5edd5b3a1b6d21!2sSavilankatu%201b%2C%2000250%20Helsinki!5e0!3m2!1sen!2sfi!4v1683000000000"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ecobike Helsinki — Savilankatu 1b"
+          ></iframe>
+
+        </div>
+
       </div>
-    </div>
 
-    <!-- CONTACT -->
-    <div class="card">
-      <div class="card-title">Contact</div>
-      <div class="contact-row"><strong>Address</strong> Savilankatu 1b, 00250 Helsinki</div>
-      <div class="contact-row"><strong>Phone</strong> <a href="tel:+358400844358">+358 400 844 358</a></div>
-      <div class="contact-row"><strong>Email</strong> <a href="mailto:ecobike.helsinki@gmail.com">ecobike.helsinki@gmail.com</a></div>
+      <!-- RIGHT -->
 
-      <div class="section-label">Services</div>
-      <div class="services-grid">
-        <div class="service-tag">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6h-4l-3 7h10l-2-7zM5.5 17.5L8 10"/><circle cx="15" cy="6" r="1"/></svg>
-          Rental bicycles
+      <div class="right-column">
+
+        <div class="card">
+
+          <div class="card-title">Contact</div>
+
+          <div class="contact-row">
+            <strong>Address</strong>
+            Savilankatu 1b, 00250 Helsinki
+          </div>
+
+          <div class="contact-row">
+            <strong>Phone</strong>
+
+            <a href="tel:+358400844358">
+              +358 400 844 358
+            </a>
+          </div>
+
+          <div class="contact-row">
+            <strong>Email</strong>
+
+            <a href="mailto:ecobike.helsinki@gmail.com">
+              ecobike.helsinki@gmail.com
+            </a>
+          </div>
+
+          <div class="section-label">Services</div>
+
+          <div class="services-grid">
+
+            <div class="service-tag">
+              Rental bicycles
+            </div>
+
+            <div class="service-tag">
+              Service & repairs
+            </div>
+
+            <div class="service-tag">
+              Spare parts
+            </div>
+
+            <div class="service-tag">
+              Used bikes
+              <span class="price-badge">from 90 €</span>
+            </div>
+
+          </div>
+
         </div>
-        <div class="service-tag">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-          Service &amp; repairs
-        </div>
-        <div class="service-tag">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
-          Spare parts
-        </div>
-        <div class="service-tag">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-          Used bikes
-          <span class="price-badge">from 90 €</span>
-        </div>
+
       </div>
-    </div>
 
-    <!-- MAP -->
-    <div class="map-card">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1984.4!2d24.9235!3d60.1869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46920bc5bca5ea55%3A0x5f5edd5b3a1b6d21!2sSavilankatu%201b%2C%2000250%20Helsinki!5e0!3m2!1sen!2sfi!4v1683000000000"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Ecobike Helsinki — Savilankatu 1b">
-      </iframe>
     </div>
 
   </div>
 
-  <footer>Ecobike Helsinki &nbsp;·&nbsp; Savilankatu 1b, 00250 Helsinki</footer>
+  <footer>
+    Ecobike Helsinki · Savilankatu 1b, 00250 Helsinki
+  </footer>
 
 </body>
 </html>
